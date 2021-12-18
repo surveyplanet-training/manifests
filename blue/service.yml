@@ -1,16 +1,14 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: blue
   namespace: sandbox
+  name: blue-alb
 spec:
-  type: "LoadBalancer"
-  ports:
-    - name: "http"
-      port: 80
-      targetPort: 80
+  type: NodePort
   selector:
     app: blue
-# add status with loadBalncer object here:
-status:
-  loadBalancer: {}
+  ports:
+    # no "https" is defined
+    - name: http
+      port: 80
+      targetPort: 80
