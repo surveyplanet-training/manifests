@@ -1,14 +1,13 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-- .git/info/exclude
-- blue/clb-service.yml
-- blue/deployment.yml
-- blue/service.yml
-- flux-system
-- ingress.yml
-- podinfo/podinfo-kustomization.yaml
-- podinfo/podinfo-source.yaml
-- red/clb-service.yml
-- red/deployment.yml
-- red/service.yml
+  - blue/clb-service.yml
+  - blue/deployment.yml
+  - blue/service.yml
+  - flux-system
+  - ingress.yml
+  - podinfo/podinfo-kustomization.yaml
+  - podinfo/podinfo-source.yaml
+  - red/clb-service.yml
+  - red/deployment.yml
+  - red/service.yml
