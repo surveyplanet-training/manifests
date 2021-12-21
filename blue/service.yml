@@ -10,5 +10,5 @@ spec:
   ports:
     # no "https" is defined
     - name: http
-      port: 80
-      targetPort: 8081
+      port: 8081
+      targetPort: 80

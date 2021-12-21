@@ -27,7 +27,7 @@ spec:
               service:
                 name: blue-service
                 port:
-                  number: 8081
+                  number: 80
     - host: red.s4y.me
       http:
         paths:
@@ -37,4 +37,4 @@ spec:
               service:
                 name: red-service
                 port:
-                  number: 8082
+                  number: 80
