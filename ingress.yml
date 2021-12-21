@@ -13,23 +13,28 @@ metadata:
     # alb.ingress.kubernetes.io/certificate-arn: acm-cert-arn # "comma" separated `stringList`
 
     # Optional, if you would like to serve 80 port as well
-    # alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS": 443}]'
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}]'
+    # , {"HTTPS": 443}]'
     # alb.ingress.kubernetes.io/ssl-redirect: "443"
 spec:
   rules:
-    - http:
+    - host: blue.s4y.me
+      http:
         paths:
-          - path: "/blue"
+          - path: "/"
             pathType: Prefix
             backend:
               service:
-                name: blue-alb
+                name: blue-service
                 port:
-                  number: 80
-          - path: "/red"
+                  number: 8081
+    - host: red.s4y.me
+      http:
+        paths:
+          - path: "/"
             pathType: Prefix
             backend:
               service:
-                name: red-alb
+                name: red-service
                 port:
-                  number: 80
+                  number: 8082
