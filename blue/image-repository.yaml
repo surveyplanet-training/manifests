@@ -1,0 +1,25 @@
+---
+apiVersion: image.toolkit.fluxcd.io/v1beta1
+kind: ImageRepository
+metadata:
+  name: blue
+  namespace: flux-system
+spec:
+  image: docker.io/lukamit/blue
+  interval: 1m0s
+  secretRef:
+    name: dockerhub
+
+---
+apiVersion: image.toolkit.fluxcd.io/v1beta1
+kind: ImagePolicy
+metadata:
+  name: blue
+  namespace: flux-system
+spec:
+  imageRepositoryRef:
+    name: blue
+  policy:
+    semver:
+      range: ^1.x-0
+

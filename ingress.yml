@@ -28,13 +28,3 @@ spec:
                 name: blue-service
                 port:
                   number: 80
-    - host: red.s4y.me
-      http:
-        paths:
-          - path: "/"
-            pathType: Prefix
-            backend:
-              service:
-                name: red-service
-                port:
-                  number: 80
