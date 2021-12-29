@@ -3,6 +3,8 @@ kind: Ingress
 metadata:
   namespace: sandbox
   name: websites-ingress
+  labels:
+    app: blue
   annotations:
     # Required annotations
     kubernetes.io/ingress.class: alb
@@ -18,8 +20,7 @@ metadata:
     # alb.ingress.kubernetes.io/ssl-redirect: "443"
 spec:
   rules:
-    - host: blue.s4y.me
-      http:
+    - http:
         paths:
           - path: "/"
             pathType: Prefix
